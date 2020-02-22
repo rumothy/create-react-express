@@ -9,5 +9,15 @@ export function Row({ fluid, children }) {
 }
 
 export function Col({ size, children }) {
-  return <div>{children}</div>;
+  if (size === undefined) size = "";
+  return (
+    <div
+      className={size
+        .split(" ")
+        .map(size => "col-" + size)
+        .join(" ")}
+    >
+      {children}
+    </div>
+  );
 }
