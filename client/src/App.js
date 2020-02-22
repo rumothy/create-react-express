@@ -3,10 +3,21 @@ import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Input from "./components/Input";
 import Button from "./components/Button";
+import API from "./utils/API";
 import { Container, Row, Col } from "./components/Grid";
 
 class App extends Component {
-  state = {};
+  state = {
+    recipes: [],
+    recipeSearch: ""
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
   render() {
     return (
@@ -15,12 +26,12 @@ class App extends Component {
         <Jumbotron />
         <Container>
           <Row>
-            <Col>
+            <Col size="md-12">
               <form>
                 <Container>
                   <Row>
                     <Col>
-                      <Input />
+                      <Input name="recipeSearch" />
                     </Col>
                     <Col>
                       <Button>Search</Button>
