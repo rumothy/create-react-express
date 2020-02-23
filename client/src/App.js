@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import API from "./utils/API";
+import { RecipeList, RecipeListItem } from "./components/RecipeList";
 import { Container, Row, Col } from "./components/Grid";
 
 class App extends Component {
@@ -23,7 +24,6 @@ class App extends Component {
     event.preventDefault();
     API.getRecipes(this.state.recipeSearch)
       .then(res => {
-        console.log(res.data);
         this.setState({ recipes: res.data });
       })
       .catch(err => console.log(err));
@@ -62,13 +62,23 @@ class App extends Component {
               </form>
             </Col>
           </Row>
+
           <Row>
             <Col size="xs-12">
-              <h1>Render Recipes Here</h1>
+              {!this.state.recipes.length ? (
+                <h1 className="text-center">No Recipes to Display</h1>
+              ) : (
+                <RecipeList>
+                  {this.state.recipes.map(recipe => {
+                    return (
+                      <RecipeListItem key={recipe.title} recipe={recipe} />
+                    );
+                  })}
+                </RecipeList>
+              )}
             </Col>
           </Row>
         </Container>
-        <Input />
       </div>
     );
   }

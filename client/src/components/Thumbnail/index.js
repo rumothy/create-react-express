@@ -1,11 +1,16 @@
 import React from "react";
 import "./style.css";
 
-function Thumbnail(props) {
+function Thumbnail({ src }) {
   return (
-    <div>
-      <p>Thumbnail</p>
-    </div>
+    <div
+      className="thumbnail"
+      role="img"
+      aria-label="Recipe Image"
+      style={{
+        backgroundImage: `url(${src})`
+      }}
+    ></div>
   );
 }
 
