@@ -21,7 +21,12 @@ class App extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.test("world");
+    API.getRecipes(this.state.recipeSearch)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ recipes: res.data });
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
