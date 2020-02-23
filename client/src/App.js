@@ -35,7 +35,7 @@ class App extends Component {
               <form>
                 <Container>
                   <Row>
-                    <Col>
+                    <Col size="xs-9 sm-10">
                       <Input
                         name="recipeSearch"
                         value={this.state.recipeSearch}
@@ -43,7 +43,7 @@ class App extends Component {
                         placeholder="Search For a Recipe"
                       />
                     </Col>
-                    <Col>
+                    <Col size="xs-3 sm-2">
                       <Button
                         onClick={this.handleFormSubmit}
                         type="success"
@@ -58,7 +58,7 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col size="xs-12">
               <h1>Render Recipes Here</h1>
             </Col>
           </Row>

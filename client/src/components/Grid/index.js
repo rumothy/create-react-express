@@ -1,15 +1,14 @@
 import React from "react";
 
 export function Container({ fluid, children }) {
-  return <div>{children}</div>;
+  return <div className={`container${fluid ? "-fluid" : ""}`}>{children}</div>;
 }
 
 export function Row({ fluid, children }) {
-  return <div>{children}</div>;
+  return <div className={`row${fluid ? "-fluid" : ""}`}>{children}</div>;
 }
 
 export function Col({ size, children }) {
-  if (size === undefined) size = "";
   return (
     <div
       className={size
