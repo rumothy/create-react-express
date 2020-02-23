@@ -19,6 +19,11 @@ class App extends Component {
     });
   };
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.test("world");
+  };
+
   render() {
     return (
       <div>
@@ -34,7 +39,13 @@ class App extends Component {
                       <Input name="recipeSearch" />
                     </Col>
                     <Col>
-                      <Button>Search</Button>
+                      <Button
+                        onClick={this.handleFormSubmit}
+                        type="success"
+                        className="input-lg"
+                      >
+                        Search
+                      </Button>
                     </Col>
                   </Row>
                 </Container>
