@@ -2,8 +2,8 @@ import React from "react";
 
 function Input(props) {
   return (
-    <div>
-      <input className="form-control" type="text"></input>
+    <div className="input-group input-group-lg">
+      <input className="form-control" type="text" {...props} />
     </div>
   );
 }

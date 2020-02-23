@@ -36,7 +36,12 @@ class App extends Component {
                 <Container>
                   <Row>
                     <Col>
-                      <Input name="recipeSearch" />
+                      <Input
+                        name="recipeSearch"
+                        value={this.state.recipeSearch}
+                        onChange={this.handleInputChange}
+                        placeholder="Search For a Recipe"
+                      />
                     </Col>
                     <Col>
                       <Button
